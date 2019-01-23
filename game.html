@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Game</title>
+
+<script type="text/javascript">
+	function play() {
+		// Read value from the input field
+		var panos = document.getElementById("bet").value;
+		// Randomize dice pips between 1-6
+        var pips = Math.round( (Math.random( ) * 5) + 1 );
+        
+        if (pips == 1 || pips == 3|| pips == 5 ) {
+            document.getElementById("answer").innerHTML = " Pips was " + pips + " no pay. " ;
+        }
+        if (pips == 2 || pips == 4){
+            document.getElementById("answer").innerHTML = " pips was " + pips + " paid back: "  + panos * 1.25 + " euros. ";
+        }
+        
+        if (pips == 6) {
+            document.getElementById("answer").innerHTML = "pips was " + pips + " paid back: " + panos* 1.5 + " euros. ";
+        }
+        
+		// Calculate win base on pips
+		
+		// Write the answer on the page, to the answer div, as content of the div
+
+	}
+</script>
+</head>
+<body>
+	<h3>Game</h3>
+
+	<form>
+		<label>Bet: </label> 
+		<input type="text" name="bet" id="bet" size="3"> 
+		<input type="button" value="Play" onClick="play()">
+	</form>
+
+	<!-- This is the target where the JavaScript will write the answer -->
+	<div id="answer"></div>
+</body>
+</html>
+
+<!-- test example:
+bet = x, pips = 1 or 3 or 5 -> no pay
+bet = 2, pips = 2 or 4 -> paidBack = 2.50 
+bet = 2, pips = 6 -> paidBack = 3.00
+-->
